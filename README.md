@@ -45,14 +45,6 @@ InverCars es una aplicación web y móvil diseñada para optimizar y digitalizar
 - Aplicación Web
 - Aplicación Móvil
 
-##  Capturas de Pantalla
-
-[Enlace a las interfaces de diseño en Figma]
-
-##  Modelo de Negocio
-
-[Enlace al modelo Canvas]
-
 ##  Estado del Proyecto
 
 En desarrollo activo. Estamos implementando las funcionalidades principales y refinando la experiencia de usuario.
@@ -66,11 +58,7 @@ En desarrollo activo. Estamos implementando las funcionalidades principales y re
 
 - Servicio de entrega de vehículos rentados en el aeropuerto
 - Modelado 3D de vehículos
-- [Otras funcionalidades planeadas]
 
-##  Licencia
-
-[Tipo de licencia]
 
 ---
 
