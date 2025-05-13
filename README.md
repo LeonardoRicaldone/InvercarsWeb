@@ -51,8 +51,12 @@ En desarrollo activo. Estamos implementando las funcionalidades principales y re
 
 ##  Equipo de Desarrollo
 
-- Leví Saravia - Coordinador del Proyecto (20230170@ricaldone.edu.sv)
-- [Otros miembros del equipo]
+- José Leví Saravia Navas- Coordinador del Proyecto (20230170@ricaldone.edu.sv)
+- Gabriela Cecibel Arévalo Molina- (20190019@ricaldone.edu.sv)
+- Marvin Javier Gutiérrez Coto - (20230644@ricaldone.edu.sv)
+- Josue Alejandro Hernández García- (20230098@ricaldone.edu.sv)
+- Leonardo Benjamín Monterrosa Núñez- (20230070@ricaldone.edu.sv)
+
 
 ##  Funcionalidades Futuras
 
