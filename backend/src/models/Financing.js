@@ -1,6 +1,6 @@
 import { Schema, Types, model} from "mongoose";
 
-const ordersCarsSchema = new Schema({
+const financingSchema = new Schema({
 idPurchaseReq : {
     type: Schema.Types.ObjectId,
     ref: "PurchaseRequest",
@@ -10,45 +10,77 @@ downPaymentPercentage: {
     type: String,
     require: true
 },
-brand: {
-    type: String,
+downPaymentAmount : {
+    type: Number,
     require: true,
 },
-model: {
-    type: String,
-    require: true,
-    min: 8
+term: {
+    type: Number,
+    require: true
 },
-year: {
+interestRate : {
+    type: Number,
+    require: true
+},
+lateFeeRate : {
+    type: Number,
+    require: true
+},
+startDate : {
     type: Date,
     require: true,
-    min: 0
 },
-engine: {
+totalAmount : {
+    type: Number,
+    require: true
+},
+status: {
     type: String,
-    require: false
+    require: true
 },
-cylinders: {
-    type: String,
-    require: true,
-},
-transmission: {
-    type: String,
-    require: true,
-    min: 8
-},
-drivetrain: {
-    type: Date,
-    require: true,
-    min: 0
-},
-dateRequest: {
-    type: String,
-    require: false
-}
+payments: [
+    {
+        paymentsinstallmentNumber: {
+            type: Number,
+            require: true,
+        },
+        paymentsdueDate: {
+            type: Date,
+            require: true,
+        },
+        paymentsamount: {
+            type: Number,
+            require: true,
+        },
+        paymentsprincipal: {
+            type: Number,
+            require: true,
+        },
+        paymentsinterest: {
+            type: Number,
+            require: true,
+        },
+        paymentsiva: {
+            type: Number,
+            require: true,
+        },
+        paymentsstatus: {
+            type: String,
+            require: true,
+        },
+        paymentspaymentDate: {
+            type: Date,
+            require: true,
+        },
+        paymentslateFee: {
+            type: Number,
+            require: true,
+        },
+    },
+],
 }, {
     timestamps: true,
     strict: false
 })
 
-export default model("OrdersCars", ordersCarsSchema)
+export default model("Financing", financingSchema)
