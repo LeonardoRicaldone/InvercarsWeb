@@ -15,8 +15,8 @@
 }
 
 .register-left h1 {
-  font-size: 40px;
-  margin-bottom: 25px;
+  font-size: 45px;
+  margin-bottom: 120px;
   color: #000000;
   font-weight: bolder;
   text-align: center;
@@ -74,7 +74,7 @@
 }
 
 .register-button:hover {
-  background-color: #163d8a;
+  background-color: #A93B3F;
 }
 
 .login-text {
@@ -87,6 +87,10 @@
   text-decoration: none;
   font-weight: bold;
   font-size: 13px;
+}
+
+.login-link:hover {
+  color: #2551A7;
 }
 
 .register-right {

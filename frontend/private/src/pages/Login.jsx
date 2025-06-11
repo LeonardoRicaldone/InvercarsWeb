@@ -18,9 +18,6 @@ const Login = () => {
           <button className="social-btn google-btn"><img src={Glbtn} alt="Google" /></button>
         </div>
 
-        <div className="divider">
-          <span>.</span>
-        </div>
 
         <div className="form-container">
   <div className="input-group">

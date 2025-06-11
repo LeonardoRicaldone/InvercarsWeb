@@ -31,7 +31,7 @@
 }
 
 .welcome-content h1 {
-  font-size: 80px;
+  font-size: 100px;
   font-weight: bold;
   color: white;
   margin: 0;
@@ -42,7 +42,7 @@
   font-weight: 600;
   color: white;
   margin-top: 10px;
-  margin-bottom: 135px;
+  margin-bottom: 150px;
 }
 
 .welbackground-image::after {
