@@ -23,8 +23,10 @@ employeesController.insertEmployees = async(req, res) => {
     const { name, lastname, email, password, birthday } = req.body;
     let photoURL = ""
 
-    //Subir la imagen a Cloudinary
-    if(req.file){
+    try {
+        
+        //Subir la imagen a Cloudinary
+        if(req.file){
         const result = await cloudinary.uploader.upload(
             req.file.path,
             {
@@ -36,7 +38,69 @@ employeesController.insertEmployees = async(req, res) => {
         photoURL = result.secure_url
     }
 
-    
+    //Guardar todo en la base de datos
+    const newEmployee = new employeesModel({name, lastname, email, password, birthday, photo: photoURL})
+
+    newEmployee.save();
+
+    res.status(200).json({message: "Employee saved"})
+
+    } catch (error) {
+        
+        console.log("error" + error)
+        res.status(500).json({message: "Internal server error"})
+
+    }
+
+}
+
+//UPDATE
+employeesController.updateEmployees = async(req, res) => {
+
+    //1- Pido las cosas
+    const { name, lastname, email, password, birthday, photo: photoURL } = req.body;
+
+    try {
+        
+        const employeeUpdated = await employeesModel.findByIdAndUpdate(
+            req.params.id,
+            {name, lastname, email, password, birthday, photo: photoURL},
+            {new: true}
+        )
+
+        if(!employeeUpdated){
+            return res.status(400).json({message: "Employee not found"})
+        }
+
+        res.status(200).json({message: "Employee updated"})
+
+    } catch (error) {
+
+        console.log("error" + error)
+        return res.status(500).json({message: "Internal server error"})
+
+    }
+}
+
+//DELETE
+employeesController.deleteEmployees = async (req, res) => {
+
+    try {
+        
+        const deleteEmployee = await employeesModel.findByIdAndDelete(req.params.id);
+
+        if(!deleteEmployee){
+            return res.status(400).json({message: "Employee not found"})
+        }
+
+        res.status(200).json({message: "Employee deleted"});
+
+    } catch (error) {
+
+        console.log("error" + error)
+        return res.status(500).json({message: "Internal server error"})
+        
+    }
 }
 
 /*
