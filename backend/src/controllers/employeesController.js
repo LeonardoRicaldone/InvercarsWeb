@@ -1,6 +1,16 @@
 import employeesModel from "../models/Employees.js"
 import { v2 as cloudinary } from "cloudinary"
 
+//BAJO OBSERVACION
+import { config } from "../config.js"
+
+//1- Configurar cloudinary
+cloudinary.config({
+    cloud_name: config.cloudinary.cloudinary_name,
+    api_key: config.cloudinary.cloudinary_api_key,
+    api_secret: config.cloudinary.cloudinary_api_secret
+})
+
 //Creo un array de funciones vacías
 const employeesController = {};
 
@@ -102,6 +112,8 @@ employeesController.deleteEmployees = async (req, res) => {
         
     }
 }
+
+export default employeesController;
 
 /*
 name: {
