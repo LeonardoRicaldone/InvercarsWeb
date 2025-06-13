@@ -10,5 +10,9 @@ router.route("/")
 router.route("/registerClient").post(clientsController.insertClients)
 router.route("/addFavorites").post(clientsController.addFavoriteCar)
 
+router.route("/:id")
+.put(clientsController.updateClients)
+.delete(clientsController.deleteClients);
+
 
 export default router;

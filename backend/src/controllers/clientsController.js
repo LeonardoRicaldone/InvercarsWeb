@@ -34,6 +34,53 @@ clientsController.insertClients = async(req, res) => {
     }
 }
 
+//UPDATE
+clientsController.updateClients = async(req, res) => {
+
+    //1- Pido las cosas
+    const { name, lastname, birthdate, email, password, photo, offerLevel } = req.body;
+
+    try {
+        
+        const clientUpdated = await clientsModel.findByIdAndUpdate(
+            req.params.id,
+            {name, lastname, birthdate, email, password, photo, offerLevel},
+            {new: true}
+        )
+
+        if(!clientUpdated){
+            return res.status(400).json({message: "Client not found"})
+        }
+
+        return res.status(400).json({message: "Client updated"})
+
+    } catch (error) {
+
+        console.log("error" + error)
+        return res.status(500).json({message: "Internal server error"})
+
+    }
+}
+
+//ELIMINAR
+clientsController.deleteClients = async(req, res) => {
+
+    try {
+        
+        const deleteClient = await clientsModel.findByIdAndDelete(req.params.id);
+
+        if(!deleteClient){
+            return res.status(400).json({message: "Client not found"})
+        }
+
+        res.status(200).json({message: "Client deleted"});
+
+    } catch (error) {
+        console.log("error" + error)
+        return res.status(500).json({message: "Internal server error"})
+    }
+}
+
 //Agregar carros a favoritos
 clientsController.addFavoriteCar = async (req, res) => {
     const { userId, idCar } = req.body;
