@@ -42,6 +42,7 @@ favorites: [
 ],
 history: [
     {
+        _id: false,
         idCar: {
             type: Schema.Types.ObjectId,
             ref: "Cars",

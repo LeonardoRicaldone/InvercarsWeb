@@ -99,4 +99,22 @@ clientsController.addFavoriteCar = async (req, res) => {
     }
 };
 
+//Agregar carros vistos al historial
+clientsController.addHistoryCar = async (req, res) => {
+    const { userId, idCar } = req.body;
+   
+    try {
+  //Primero, obtendo que usuario es en base a su ID
+      const user = await clientsModel.findById(userId);
+   
+      // Agregar el carro visto al historial
+      user.history.push({idCar});
+      await user.save();
+   
+      res.status(200).json({ message: 'Carro agregado al historial', user });
+    } catch (error) {
+      res.status(500).json({ message: 'Error del servidor', error });
+    }
+};
+
 export default clientsController;

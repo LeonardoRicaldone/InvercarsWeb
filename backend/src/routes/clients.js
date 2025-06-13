@@ -9,6 +9,7 @@ router.route("/")
 
 router.route("/registerClient").post(clientsController.insertClients)
 router.route("/addFavorites").post(clientsController.addFavoriteCar)
+router.route("/addHistoryCar").post(clientsController.addHistoryCar)
 
 router.route("/:id")
 .put(clientsController.updateClients)
