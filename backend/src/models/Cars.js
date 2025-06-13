@@ -1,19 +1,14 @@
 import { Schema, model} from "mongoose";
 
 const carsSchema = new Schema({
-description: {
-    type: String,
-    require: true
-},
 idModel: {
     type: Schema.Types.ObjectId,
     ref: "Models",
-    require: true
+    required: true
 },
-idBrand: {
-    type: Schema.Types.ObjectId,
-    ref: "Brands",
-    require: true
+description: {
+    type: String,
+    required: true
 },
 year: {
     type: String,
@@ -21,92 +16,109 @@ year: {
 },
 licensePlate: {
     type: String,
-    require: true,
+    required: true,
     min: 5
 },
 images: {
-    type: String,
-    require: false
+    type: [
+      {
+        image: {
+          type: String,
+          required: false,
+          //match: /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/i // Validación
+        }
+      }
+    ],
+    validate: {
+      validator: function (arr) {
+        return arr.length <= 5;
+      },
+      message: 'Solo se permiten hasta 5 imágenes.'
+    }
 },
 carTransmission: {
     type: String,
-    require: true
+    required: true
 },
 fuelType: {
     type: String,
-    require: true
+    required: true
 },
 passengerCapacity: {
     type: Number,
-    require: true
+    required: true
 },
 typeVehicle: {
     type: String,
-    require: true
+    required: true
 },
 radio: {
     type: String,
-    require: true
+    required: false
+},
+airConditioning: {
+    type: Boolean,
+    required: true
 },
 traction: {
     type: String,
-    require: true
+    required: true
 },
 rims: {
     type: String,
-    require: true
-},
-tire: {
-    type: String,
-    require: true
+    required: true
 },
 mileage: {
     type: Number,
-    require: true,
+    required: true,
 },
 engine: {
     type: String,
-    require: true
+    required: true
 },
 color: {
     type: String,
-    require: true
+    required: true
 },
 serialNumber: {
     type: String,
-    require: true
+    required: false
 },
 state: {
     type: String,
-    require: true
+    required: true
 },
 commercialUse: {
     type: String,
-    require: true
+    required: true
+},
+rentalCostPerDay: {
+    type: String,
+    required: false
 },
 purchasePrice: {
     type: Number,
-    require: true
+    required: false
 },
 offer: [
     {
         percentage: {
             type: Number,
-            require: true,
+            required: false,
         },
         level: {
             type: Number,
-            require: true,
+            required: false,
         },
     },
 ],
 deposit: {
     type: Number,
-    require: true
+    required: true
 },
 acquisitionDate: {
     type: Date,
-    require: true
+    required: true
 }
 
 }, {
