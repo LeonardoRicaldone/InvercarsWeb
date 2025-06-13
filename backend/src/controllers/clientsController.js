@@ -3,6 +3,12 @@ import clientsModel from "../models/Clients.js"
 //Creo un array de funciones vacías 
 const clientsController = {};
 
+//SELECT
+clientsController.getClients = async (req, res) => {
+    const clients = await clientsModel.find()
+    res.json(clients)
+}
+
 //INSERT
 clientsController.insertClients = async(req, res) => {
 
@@ -37,7 +43,7 @@ clientsController.addFavoriteCar = async (req, res) => {
       const user = await clientsModel.findById(userId);
    
       // Agregar nuevo carro favorito al array de favorites
-      user.favorites.push(idCar);
+      user.favorites.push({idCar});
       await user.save();
    
       res.status(200).json({ message: 'Carro agregado a favoritos', user });

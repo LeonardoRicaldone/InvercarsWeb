@@ -7,7 +7,7 @@ dotenv.config();
 
 export const config = {
     db: {
-        URI: process.env.DB_URI || "mongodb+srv://DevsInver:Hu0b6cMs7JJq8wI3@invercars.hmx3tu0.mongodb.net/InverCars",
+        URI: process.env.DB_URI || "mongodb+srv://DevsInver:Hu0b6cMs7JJq8wI3@invercars.hmx3tu0.mongodb.net/Invercars",
     },
     server: {
         port: process.env.PORT || 4000,
