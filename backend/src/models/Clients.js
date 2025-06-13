@@ -36,7 +36,7 @@ favorites: [
         idCar: {
             type: Schema.Types.ObjectId,
             ref: "Cars",
-            require: true,
+            require: false,
         },
     },
 ],
@@ -45,7 +45,7 @@ history: [
         idCar: {
             type: Schema.Types.ObjectId,
             ref: "Cars",
-            require: true,
+            require: false,
         },
     },
 ]
