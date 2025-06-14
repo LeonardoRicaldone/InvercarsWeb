@@ -30,7 +30,7 @@ employeesController.getAllEmployees = async(req, res) => {
 employeesController.insertEmployees = async(req, res) => {
 
     //1- Pedir los datos
-    const { name, lastname, email, password, birthday } = req.body;
+    const { name, lastname, email, password, birthdate } = req.body;
     let photoURL = ""
 
     try {
@@ -41,7 +41,7 @@ employeesController.insertEmployees = async(req, res) => {
             req.file.path,
             {
                 folder: "public",
-                allowed_formats: ["png", "jpg", "jpeg"]
+                allowed_formats: ["png", "jpg", "jpeg", "webp"]
             }
         )
         //Guardo en la variable la URL de donde se subió la imagen
@@ -49,14 +49,14 @@ employeesController.insertEmployees = async(req, res) => {
     }
 
     //Guardar todo en la base de datos
-    const newEmployee = new employeesModel({name, lastname, email, password, birthday, photo: photoURL})
+    const newEmployee = new employeesModel({name, lastname, email, password, birthdate, photo: photoURL})
 
     newEmployee.save();
 
     res.status(200).json({message: "Employee saved"})
 
     } catch (error) {
-        
+        console.error("ERROR insertEmployees:", error);
         console.log("error" + error)
         res.status(500).json({message: "Internal server error"})
 
@@ -68,13 +68,13 @@ employeesController.insertEmployees = async(req, res) => {
 employeesController.updateEmployees = async(req, res) => {
 
     //1- Pido las cosas
-    const { name, lastname, email, password, birthday, photo: photoURL } = req.body;
+    const { name, lastname, email, password, birthdate, photo: photoURL } = req.body;
 
     try {
         
         const employeeUpdated = await employeesModel.findByIdAndUpdate(
             req.params.id,
-            {name, lastname, email, password, birthday, photo: photoURL},
+            {name, lastname, email, password, birthdate, photo: photoURL},
             {new: true}
         )
 

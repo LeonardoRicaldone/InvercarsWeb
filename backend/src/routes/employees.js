@@ -11,11 +11,10 @@ const upload = multer({dest: "public/"})
 
 router.route("/")
 .get(employeesController.getAllEmployees)
-.post(upload.single("image"), employeesController.insertEmployees)
-//OJO con lo de "image", puede ser "photo", verificar
+.post(upload.single("photo"), employeesController.insertEmployees)
 
 router.route("/:id")
-.put(upload.single("image"), employeesController.updateEmployees)
+.put(upload.single("photo"), employeesController.updateEmployees)
 .delete(employeesController.deleteEmployees)
 
 export default router;

@@ -42,7 +42,7 @@ brandsController.insertBrands = async(req, res) => {
                 req.file.path,
                 {
                     folder: "public",
-                    allowed_formats: ["png", "jpg", "jpeg"]
+                    allowed_formats: ["png", "jpg", "jpeg", "webp"]
                 }
             )
             //Guardo en la variable la URL de donde se subió la imagen

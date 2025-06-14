@@ -26,7 +26,8 @@ images: {
           type: String,
           required: false,
           //match: /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/i // Validación
-        }
+        },
+        _id: false,
       }
     ],
     validate: {
@@ -36,6 +37,16 @@ images: {
       message: 'Solo se permiten hasta 5 imágenes.'
     }
 },
+//Manera para guardar el array de imagenes más simple(solo las url)
+/*images: {
+  type: [String],
+  validate: {
+    validator: function (arr) {
+      return arr.length <= 5;
+    },
+    message: 'Solo se permiten hasta 5 imágenes.'
+  }
+},*/
 carTransmission: {
     type: String,
     required: true

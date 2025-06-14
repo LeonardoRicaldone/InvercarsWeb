@@ -12,7 +12,7 @@ const upload = multer({dest: "public/"})
 router.route("/")
 .get(carsController.getAllCars)
 .post(upload.array("images", 5), carsController.insertCars)
-//OJO con lo de "image", puede ser "photo", verificar
+router.route("/addOfferCar").post(carsController.addOfferCar)
 
 router.route("/:id")
 .put(upload.array("images", 5), carsController.updateCars)

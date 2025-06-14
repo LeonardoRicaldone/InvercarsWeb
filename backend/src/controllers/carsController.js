@@ -67,7 +67,7 @@ carsController.insertCars = async (req, res) => {
         const uploadPromises = req.files.map((file) =>
           cloudinary.uploader.upload(file.path, {
             folder: "public",
-            allowed_formats: ["png", "jpg", "jpeg"],
+            allowed_formats: ["png", "jpg", "jpeg", "webp"],
           })
         );
   
@@ -209,6 +209,23 @@ carsController.deleteCars = async(req, res) => {
 }
 
 //Agregar ofertas a carros
+carsController.addOfferCar = async(req, res) => {
 
+  const { carId, percentage, level } = req.body;
+
+  try {
+    
+      //Primero, obtendo que carro es en base a su ID
+      const car = await carsModel.findById(carId);
+
+      //Agregar oferta al array de ofertas del carro
+      car.offer.push({percentage, level})
+      await car.save();
+
+      res.status(200).json({ message: 'Oferta agregado al carro', car });
+  } catch (error) {
+    res.status(500).json({ message: 'Error del servidor', error });
+  }
+}
 
 export default carsController;
