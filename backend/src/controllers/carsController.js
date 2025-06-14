@@ -1,4 +1,5 @@
 import carsModel from "../models/Cars.js"
+import modelsModel from "../models/Models.js"
 import { v2 as cloudinary } from "cloudinary"
 
 import { config } from "../config.js"

@@ -1,80 +1,80 @@
 import { Schema, Types, model} from "mongoose";
 
 const financingSchema = new Schema({
-idPurchaseReq : {
+idPurchaseRequest : {
     type: Schema.Types.ObjectId,
     ref: "PurchaseRequest",
-    require: true
+    required: true
 },
 downPaymentPercentage: {
-    type: String,
-    require: true
-},
-downPaymentAmount : {
     type: Number,
-    require: true,
+    required: true
+},
+downPaymentAmount: {
+    type: Number,
+    required: true,
 },
 term: {
     type: Number,
-    require: true
+    required: true
 },
-interestRate : {
+interestRate: {
     type: Number,
-    require: true
+    required: true
 },
-lateFeeRate : {
+lateFeeRate: {
     type: Number,
-    require: true
+    required: true
 },
-startDate : {
+startDate: {
     type: Date,
-    require: true,
+    required: true,
 },
-totalAmount : {
+totalAmount: {
     type: Number,
-    require: true
+    required: true
 },
 status: {
     type: String,
-    require: true
+    required: true
 },
 payments: [
     {
         paymentsinstallmentNumber: {
             type: Number,
-            require: true,
+            required: true,
         },
         paymentsdueDate: {
             type: Date,
-            require: true,
+            required: true,
         },
         paymentsamount: {
             type: Number,
-            require: true,
+            required: true,
         },
         paymentsprincipal: {
             type: Number,
-            require: true,
+            required: true,
         },
         paymentsinterest: {
             type: Number,
-            require: true,
+            required: true,
         },
         paymentsiva: {
             type: Number,
-            require: true,
+            required: true,
         },
         paymentsstatus: {
             type: String,
-            require: true,
+            required: true,
         },
         paymentspaymentDate: {
             type: Date,
-            require: true,
+            required: true,
         },
         paymentslateFee: {
             type: Number,
-            require: true,
+            required: true,
         },
     },
 ],
