@@ -1,5 +1,4 @@
 import express from "express";
-
 import financingController from "../controllers/financingController.js";
 
 const router = express.Router();
