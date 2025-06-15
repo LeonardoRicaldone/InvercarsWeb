@@ -81,4 +81,40 @@ financingController.deleteFinancings = async(req, res) => {
     }
 }
 
+/*
+paymentsInstallmentNumber
+paymentsDueDate
+paymentsAmount
+paymentsPrincipal
+paymentsInterest
+paymentsIva
+paymentsStatus
+paymentsPaymentDate
+paymentsLateFee
+*/
+
+//Agregar pagos al financiamiento
+financingController.addPayments = async(req, res) => {
+
+    const { financingId, paymentsInstallmentNumber, paymentsDueDate, paymentsAmount, paymentsPrincipal, paymentsInterest, paymentsIva, paymentsStatus, paymentsPaymentDate, paymentsLateFee } = req.body;
+
+    try {
+        
+        //Primero, obtengo cual financiamiento es en base a su ID
+        const financing = await financingModel.findById(financingId)
+
+        //Agregar pagos al array de pagos del financiamiento
+        financing.payments.push({paymentsInstallmentNumber, paymentsDueDate, paymentsAmount, paymentsPrincipal, paymentsInterest, paymentsIva, paymentsStatus, paymentsPaymentDate, paymentsLateFee})
+        await financing.save();
+
+        res.status(200).json({ message: 'Pago agregado al financiamiento', financing });
+
+    } catch (error) {
+        res.status(500).json({ message: 'Error del servidor', error });
+    }
+
+}
+
+
+
 export default financingController;

@@ -8,6 +8,7 @@ router
   .route("/")
   .get(financingController.getAllFinancings)
   .post(financingController.inserFinancings)
+  router.route("/addPayments").post(financingController.addPayments)
 
 router
   .route("/:id")

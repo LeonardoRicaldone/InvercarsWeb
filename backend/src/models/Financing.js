@@ -40,39 +40,39 @@ status: {
 },
 payments: [
     {
-        paymentsinstallmentNumber: {
+        paymentsInstallmentNumber: {
             type: Number,
             required: true,
         },
-        paymentsdueDate: {
+        paymentsDueDate: {
             type: Date,
             required: true,
         },
-        paymentsamount: {
+        paymentsAmount: {
             type: Number,
             required: true,
         },
-        paymentsprincipal: {
+        paymentsPrincipal: {
             type: Number,
             required: true,
         },
-        paymentsinterest: {
+        paymentsInterest: {
             type: Number,
             required: true,
         },
-        paymentsiva: {
+        paymentsIva: {
             type: Number,
             required: true,
         },
-        paymentsstatus: {
+        paymentsStatus: {
             type: String,
             required: true,
         },
-        paymentspaymentDate: {
+        paymentsPaymentDate: {
             type: Date,
             required: true,
         },
-        paymentslateFee: {
+        paymentsLateFee: {
             type: Number,
             required: true,
         },

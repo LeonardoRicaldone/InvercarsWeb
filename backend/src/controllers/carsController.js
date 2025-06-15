@@ -224,6 +224,7 @@ carsController.addOfferCar = async(req, res) => {
       await car.save();
 
       res.status(200).json({ message: 'Oferta agregado al carro', car });
+      
   } catch (error) {
     res.status(500).json({ message: 'Error del servidor', error });
   }
