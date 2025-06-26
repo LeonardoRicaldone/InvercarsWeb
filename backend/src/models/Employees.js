@@ -3,29 +3,28 @@ import { Schema, model} from "mongoose";
 const employeesSchema = new Schema({
 name: {
     type: String,
-    require: true
+    required: true
 },
 lastname: {
     type: String,
-    require: true
+    required: true
 },
 email: {
     type: String,
-    require: true,
+    required: true,
 },
 password: {
     type: String,
-    require: true,
+    required: true,
     min: 8
 },
 birthdate: {
     type: Date,
-    require: true,
-    min: 0
+    required: true
 },
 photo: {
     type: String,
-    require: false
+    required: false
 }
 }, {
     timestamps: true,

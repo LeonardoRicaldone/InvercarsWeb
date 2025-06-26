@@ -4,80 +4,80 @@ const purchaseReqSchema = new Schema({
 idCar: {
     type: Schema.Types.ObjectId,
     ref: "Cars",
-    require: true
+    required: true
 },
 idClient: {
     type: Schema.Types.ObjectId,
     ref: "Clients",
-    require: true
+    required: true
 },
 name: {
     type: String,
-    require: true,
+    required: true,
 },
 lastname: {
     type: String,
-    require: true
+    required: true
 },
 email: {
     type: String,
-    require: true
+    required: true
 },
 birthdate: {
     type: Date,
-    require: true
+    required: true
 },
 phone: {
     type: Number,
-    require: true
+    required: true
 },
 address: {
     type: String,
-    require: true
+    required: true
 },
 photocopyOfDui: {
     type: String,
-    require: true
+    required: false
 },
 proofOfSalary: {
     type: String,
-    require: true
+    required: false
 },
 afpAccountStatement: {
     type: String,
-    require: true
+    required: false
 },
 license: {
     type: String,
-    require: true
+    required: false
 },
 personalEmploymentReferences: {
     type: String,
-    require: true
+    required: false
 },
 utilityReceipt: {
     type: String,
-    require: true,
+    required: false
 },
 copiesIvaIncome: {
     type: String,
-    require: true
+    required: false
 },
 paymentMethodOptions: {
     type: String,
-    require: true
+    required: false
 },
 requestDate: {
     type: Date,
-    require: true
+    required: false
 },
 status: {
     type: Boolean,
-    require: true
+    required: false
 },
 typeRequest: {
     type: String,
-    require: true
+    required: false
 }
 }, {
     timestamps: true,

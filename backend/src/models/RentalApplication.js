@@ -1,57 +1,60 @@
 import { Schema, model} from "mongoose";
 
 const rentalAppSchema = new Schema({
-idModel: {
+idClient: {
     type: Schema.Types.ObjectId,
-    ref: "Models",
-    require: true
+    ref: "Clients",
+    required: true
 },
-idBrand: {
+idCar: {
     type: Schema.Types.ObjectId,
-    ref: "Brands",
-    require: true
+    ref: "Cars",
+    required: true
+},
+location: {
+    type: String,
+    required: true
 },
 photoLicense: {
     type: String,
-    require: true
+    required: true
 },
 photoDUI: {
     type: String,
-    require: true
+    required: true
 },
 phone: {
     type: String,
-    require: true,
+    required: true,
 },
 address: {
     type: String,
-    require: true,
+    required: true,
     min: 8
 },
 email: {
     type: String,
-    require: true
+    required: true
 },
 applicationDate: {
     type: Date,
-    require: false
+    required: false
 },
 startDate: {
     type: Date,
-    require: true,
+    required: true,
 },
 endDate: {
     type: Date,
-    require: true
+    required: true
 },
 state: {
     type: Date,
-    require: true,
-    min: 0
+    required: true
 },
 paymentMethod: {
     type: String,
-    require: false
+    required: false
 }
 }, {
     timestamps: true,

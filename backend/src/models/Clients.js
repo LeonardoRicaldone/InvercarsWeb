@@ -3,49 +3,50 @@ import { Schema, model} from "mongoose";
 const clientsSchema = new Schema({
 name: {
     type: String,
-    require: true
+    required: true
 },
 lastname: {
     type: String,
-    require: true
+    required: true
 },
 birthdate: {
     type: Date,
-    require: true,
-    min: 0
+    required: true,
 },
 email: {
     type: String,
-    require: true,
+    required: true,
 },
 password: {
     type: String,
-    require: true,
+    required: true,
     min: 8
 },
 photo: {
     type: String,
-    require: false
+    required: false
 },
 offerLevel: {
     type: String,
-    require: false
+    required: false
 },
 favorites: [
     {
+        _id: false,
         idCar: {
             type: Schema.Types.ObjectId,
             ref: "Cars",
-            require: true,
+            required: false,
         },
     },
 ],
 history: [
     {
+        _id: false,
         idCar: {
             type: Schema.Types.ObjectId,
             ref: "Cars",
-            require: true,
+            required: false,
         },
     },
 ]

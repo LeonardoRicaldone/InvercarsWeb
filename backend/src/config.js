@@ -1,16 +1,16 @@
+//importo la librería que acabo de instalar
 import dotenv from "dotenv";
 
-
-//Ejecuto "Dotenv"
-//me ayudara a acceder al .env
+// Ejecuto "Dotenv"
+// me ayudará a acceder al .env
 dotenv.config();
 
 export const config = {
     db: {
-        URI: process.env.DB_URI,
+        URI: process.env.DB_URI || "mongodb+srv://DevsInver:Hu0b6cMs7JJq8wI3@invercars.hmx3tu0.mongodb.net/Invercars",
     },
     server: {
-        port: process.env.PORT,
+        port: process.env.PORT || 4000,
     },
     JWT: {
         secret: process.env.JWT_SECRET,
@@ -20,9 +20,13 @@ export const config = {
         emailAdmin: process.env.ADMIN_EMAIL,
         password: process.env.ADMIN_PASSWORD
     },
+    email: {
+        user: process.env.USER_EMAIL,
+        pass: process.env.USER_PASS
+    },
     cloudinary: {
         cloudinary_name: process.env.CLOUDINARY_NAME,
         cloudinary_api_key: process.env.CLOUDINARY_API_KEY,
-        cloudinary_api_secret: process.env.CLOUDINARY_API_SECRET,
-    },
+        cloudinary_api_secret: process.env.CLOUDINARY_API_SECRET
+    }
 };

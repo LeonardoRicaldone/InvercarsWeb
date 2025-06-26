@@ -1,26 +1,36 @@
-import dotenv from "dotenv";
-//importamos el ORM
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
 dotenv.config();
 
-import { config } from "./src/utils/config.js";
+import { config } from "./src/config.js"
 
-// 1- configuro la URI o direccion de la base de datos
+//1- Configuro la URI o dirección de la base de datos
 //const URI = "";
 
-//2- Conecto la base de datos
+// 2- Conecto la base de datos
+
 mongoose.connect(config.db.URI);
 
-// Comprobar todo
+// ------- Comprobar todo ----------
 
-//3- Creo una constante que es igual a la conexion
+// 3- Creo una constante que es igual a la conexión
 const connection = mongoose.connection;
 
-connection.once("open", () => console.log("DB is connected"));
+// Veo si funciona
+connection.once("open", () => { 
+    console.log("DB is connected"); 
+});
 
-//veo si se desconecto
-connection.on("disconnected", () => console.log("DB is disconnected"));
+//Veo si se deconectó
+connection.once("disconnected", () => {
+    console.log("DB is disconnected");
+});
 
-//veo si hay un error
-connection.on("error", (error) => console.log("DB error found" + error));
+// Veo si hay un error
+connection.once("erro", (error) => {
+    console.log("error found" + error);
+});
+
+
+

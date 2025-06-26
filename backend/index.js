@@ -1,25 +1,21 @@
+// importo el archivo app.js
+import app from "./app.js";
+import "./database.js";
 
 import dotenv from "dotenv";
 
-dotenv.config();
+dotenv.config()
 
-import { config } from "./src/utils/config.js";
+import {config} from "./src/config.js"
 
-
-//importamos lo que exportamos en el app que creamos en app.js
-import app from "./app.js";
-//importamos la base de datos 
-import "./database.js"
-
-//creo una funcion
-//se conecta al servidor en el puerto seleccionado
+// Creo una función
+// que se encarga de ejecutar el servidor
 async function main() {
-
-   //const port = ;
-   app.listen(config.server.port);
-   console.log("server on port" + config.server.port);
-
+    //const port = 4000;
+    app.listen(config.server.port);
+    console.log("Server on port " + config.server.port);
 }
 
-//ejecuta la funcion
+//Ejecutamos todo
 main();
+
