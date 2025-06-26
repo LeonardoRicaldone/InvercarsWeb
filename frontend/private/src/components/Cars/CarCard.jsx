@@ -19,7 +19,7 @@ const CarCard = ({
         <span className="car-price">${price}</span>
       </div>
 
-      <div className="car-img-container">
+      <div className="car-card-img-container">
         <img src="https://blob.midwaycarrental.com/mrac-media/2021/02/FerrariF8Spider_640x480-1.png" alt={`${brand} ${model}`} className="car-image" />
       </div>
 
