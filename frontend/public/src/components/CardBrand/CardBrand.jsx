@@ -31,7 +31,7 @@ const CardBrand = ({
         <img 
           src={logoSrc} 
           alt={logoAlt}
-          className="w-8 h-8 object-contain"
+          className="w-12 h-12 object-contain"
         />
       ) : (
         <div className="w-8 h-8 bg-gray-200 rounded-md flex items-center justify-center">

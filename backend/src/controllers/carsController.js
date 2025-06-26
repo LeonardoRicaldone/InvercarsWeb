@@ -230,4 +230,29 @@ carsController.addOfferCar = async(req, res) => {
   }
 }
 
+carsController.getRentalCars = async (req, res) => {
+  try {
+    const filter = { commercialUse: 'Alquiler' };
+    
+ 
+    const cars = await carsModel.find(filter)
+      .populate('idModel')
+      .sort({ createdAt: -1 });
+    
+    res.status(200).json({
+      success: true,
+      data: cars,
+      count: cars.length
+    });
+    
+  } catch (error) {
+    console.error('Error fetching rental cars:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error al obtener los carros de alquiler',
+      error: error.message
+    });
+  }
+};
+
 export default carsController;
