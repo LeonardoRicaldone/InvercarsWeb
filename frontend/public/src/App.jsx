@@ -7,7 +7,6 @@ import Dashboard from './screens/Dasboard';
 function App() {
   return (
     <Layout>
-      <Nav />
             <Dashboard />
       <Footer />
     </Layout>

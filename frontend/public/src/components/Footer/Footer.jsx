@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaInstagram, FaFacebookF, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
 import './Footer.css';
-import logo from '../../assets/isoinver.png';
+import logo from '/isoinver.png';
 import carretera from '../../assets/streetfooter.png'
 
 const Footer = () => {
