@@ -4,47 +4,50 @@ const ordersCarsSchema = new Schema({
 idClient: {
     type: Schema.Types.ObjectId,
     ref: "Clients",
-    require: true
+    required: true
 },
 comment: {
     type: String,
-    require: true
+    required: true
 },
 brand: {
     type: String,
-    require: true,
+    required: true,
 },
 model: {
     type: String,
-    require: true,
-    min: 8
+    required: true,
 },
 year: {
     type: Date,
-    require: true,
+    required: true,
     min: 0
 },
 engine: {
     type: String,
-    require: false
+    required: false
 },
 cylinders: {
     type: String,
-    require: true,
+    required: true,
 },
 transmission: {
     type: String,
-    require: true,
+    required: true,
     min: 8
 },
 drivetrain: {
     type: Date,
-    require: true,
+    required: true,
     min: 0
 },
 dateRequest: {
     type: String,
-    require: false
+    required: false
+},
+status: {
+    type: String,
+    required: true
 }
 }, {
     timestamps: true,
