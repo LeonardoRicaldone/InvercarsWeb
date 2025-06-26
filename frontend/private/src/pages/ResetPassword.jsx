@@ -1,11 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./ResetPassword.css"
+import { Link, useNavigate } from "react-router-dom";
+import "../styles/ResetPassword.css"
 import ResCar from "../images/ResetCar.png";
 import InverLogo from "../images/Invercarslogo.png";
 import ResWallp from "../images/ResetPasswordwallpaper.jpg";
 
 const ResetPassword = () => {
+
+  const navigate = useNavigate();
+
+  const handleResetPassClick = () => {
+    navigate("/login");
+  };
+
   return (
     <div className="res-container">
       <div className="res-left">
@@ -24,7 +31,7 @@ const ResetPassword = () => {
     <input type="password" placeholder="Contraseña" />
   </div>
 
-  <button className="res-button">Aceptar</button>
+  <button className="res-button" onClick={handleResetPassClick}>Aceptar</button>
 
 </div>
       </div>

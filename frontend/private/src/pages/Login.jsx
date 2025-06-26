@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./Login.css"
+import { Link, useNavigate } from "react-router-dom";
+import "../styles/Login.css"
 import LogCar from "../images/Logcar.png";
 import InverLogo from "../images/Invercarslogo.png";
 import LogWallp from "../images/Loginwallpaper.jpg";
@@ -8,7 +8,14 @@ import Fbbtn from "../images/fb.png";
 import Glbtn from "../images/gl.png";
 
 const Login = () => {
-  return (
+
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate("/profile");
+  };
+
+  return (  
     <div className="login-container">
       <div className="login-left">
         <h1>Iniciar sesión</h1>
@@ -18,26 +25,21 @@ const Login = () => {
           <button className="social-btn google-btn"><img src={Glbtn} alt="Google" /></button>
         </div>
 
-        <div className="divider">
-          <span>.</span>
+        <div className="form-container">   
+          <div className="input-group">
+            <input type="email" placeholder="Correo electrónico" />
+          </div>
+          
+          <div className="input-group">
+            <input type="password" placeholder="Contraseña" />
+          </div>
+          
+          <div className="forgot-password">
+            <Link to="/passwordrecovery">¿Olvidaste tu contraseña?</Link>
+          </div>
+          
+          <button className="login-button" onClick={handleLoginClick}>Siguiente</button>
         </div>
-
-        <div className="form-container">
-  <div className="input-group">
-    <input type="email" placeholder="Correo electrónico" />
-  </div>
-
-  <div className="input-group">
-    <input type="password" placeholder="Contraseña" />
-  </div>
-
-  <div className="forgot-password">
-    <Link to="/recuperar">¿Olvidaste tu contraseña?</Link>
-  </div>
-
-  <button className="login-button">Siguiente</button>
-
-</div>
       </div>
 
       <div className="login-right">

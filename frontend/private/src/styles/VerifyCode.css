@@ -1,46 +1,51 @@
-.res-container {
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.verify-container {
   display: flex;
-  height: 300dv;
+  height: 100vh;
   font-family: "Poppins", sans-serif;
   overflow: hidden;
 }
 
-.res-left {
+.verify-left {
   flex: 1;
-  padding: 60px;
+  position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  z-index: 2;
-  background-color: #ffffff;
+  align-items: center;
 }
 
-.res-left h1 {
-  font-size: 40px;
+.verify-right h1 {
+  margin-top: 50px;
+  font-size: 35px;
   margin-bottom: 25px;
   color: #000000;
   font-weight: bolder;
   text-align: center;
-  margin-bottom: 90px;
 }
 
-.res-left p {
-  font-size: 13px;
-  margin-bottom: 25px;
+.verify-right p {
+  margin-top: -10px;
+  font-size: 12px;
+  margin-bottom: 60px;
   color: #424242;
   font-weight: bolder;
   text-align: center;
-  margin-bottom: 15px;
 }
 
-.input-group {
-  margin-bottom: 20px;
+.input-code {
+  margin-top: -15px;
+  margin-bottom: 40px;
 }
 
-.input-group input {
+.input-code input {
   transition: box-shadow 0.3s ease;
 }
-.input-group input:focus {
+.input-code input:focus {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.144);
 }
 
@@ -53,8 +58,8 @@
   align-items: center;
 }
 
-.input-group input {
-  width: 100%;
+.input-code input {
+  width: 350px;
   height: 65px;
   max-width: 700px;
   padding: 14px;
@@ -67,10 +72,11 @@
   font-weight: 500;
   margin: 0 auto;
   display: block;
-  margin-bottom: 30px;
+  text-align: center;
 }
 
-.res-button {
+
+.verify-button {
   width: 200px;
   height: 57px;
   background-color: #2551A7;
@@ -87,20 +93,22 @@
   margin: 0 auto 20px auto; 
 }
 
-.res-button:hover {
-  background-color: #163d8a;
+.verify-button:hover {
+  background-color: rgb(172, 62, 62);
 }
 
-.res-right {
+.verify-right {
   flex: 1;
-  position: relative;
+  padding: 60px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  z-index: 2;
+  background-color: #ffffff;
 }
 
-.resbackground-image {
-  position: relative;
+.background-img {
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
@@ -111,114 +119,78 @@
   z-index: 1;
 }
 
-.rescar-image {
+.car-img {
   position: absolute;
   bottom: 0;
-  max-width: 100%;
-  height: 33%;
-  transition: transform 1.3s ease;
+  width: 600px;
+  height: auto;
   animation: slideInCar 1.5s ease-out forwards;
   z-index: 2;
-  left: -110px;
+  right: 260px;
 }
 
-.rescar-image:hover{
+.car-img:hover{
   transform: scale(5.0); 
 }
 
 @keyframes slideInCar {
   from {
-    transform: translateX(100%); 
+    transform: translateX(-100%); 
   }
   to {
     transform: translateX(0); 
   }
 }
 
-.reslogo-invercars {
+.vlogo-invercars {
   position: absolute;
   top: 20px;
   right: 20px;
   width: 190px;
   height: 37px;
   z-index: 3;
-  left: 360px;
+  left: 20px;
 }
 
 /* RESPONSIVE */
-@media (max-width: 1024px) {
-  .res-container {
+
+@media (max-width: 700px) {
+  .verify-container {
     flex-direction: column;
-    height: auto;
   }
 
-  .res-left, .res-right {
-    flex: unset;
+  .verify-left,
+  .background-img,
+  .car-img,
+  .vlogo-invercars {
+    display: none !important;
+  }
+
+  .verify-right {
+    flex: none;
     width: 100%;
+    height: 100vh;
     padding: 40px 20px;
-  }
-
-  .res-left h1 {
-    font-size: 32px;
-  }
-
-  .res-button {
-    width: 100%;
-  }
-
-  .reslogo-invercars {
-    position: static;
-    margin: 10px auto;
-    display: block;
-  }
-
-  .rescar-image {
-    left: 0;
-    height: 40%;
-  }
-}
-
-@media (max-width: 1040px) {
-  .res-left {
-    padding: 30px 15px;
-  }
-
-  .res-left h1 {
-    font-size: 28px;
-  }
-
-  .input-group input {
-    height: 60px;
-    font-size: 12px;
-  }
-
-  .res-button {
-    height: 50px;
-    font-size: 13px;
-  }
-
-  .resbackground-image,
-  .rescar-image,
-  .reslogo-invercars {
-    display: none;
-  }
-
-  .res-right {
-    display: none;
+    justify-content: center;
+    align-items: center;
   }
 }
 
 @media (max-width: 480px) {
-  .res-left h1 {
+  .verify-right h1 {
     font-size: 24px;
   }
 
-  .res-button {
+  .verify-right p {
+    font-size: 7px;
+  }
+
+  .verify-button {
     height: 48px;
     font-size: 12px;
   }
 
-  .input-group input {
+  .input-code input {
     height: 55px;
     font-size: 11px;
   }

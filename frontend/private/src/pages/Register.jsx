@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Register.css"
+import "../styles/Register.css"
 import RegCar from "../images/RegCar.png";
 import InverLogo from "../images/Inverw.png";
 import RegWallPaper from "../images/RegWallPaper.png";

@@ -67,6 +67,11 @@
   font-size: 16px;
   cursor: pointer;
   transition: 0.3s ease;
+  text-align: center; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
 }
 
 .welcome-button:hover {
