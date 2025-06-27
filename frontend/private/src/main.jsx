@@ -1,14 +1,10 @@
-import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
+import React from 'react';
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import App from './App';
 
-function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-    </Routes>
-  );
-}
-
-export default App;
+createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+      <App />
+  </React.StrictMode>
+);

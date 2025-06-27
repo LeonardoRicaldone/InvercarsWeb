@@ -1,0 +1,111 @@
+.car-card {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  height: 200px;
+  width: 100%;
+  max-width: 260px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.car-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.car-header {
+  background: #f3f4f6;
+  padding: 8px 12px;
+  font-weight: bold;
+  color: #e5e7eb;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+.car-price {
+  color: #111827;
+}
+
+.car-card-img-container {
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fafafa;
+}
+
+.car-card-image {
+  width: 100%;
+  height: 110px;
+  object-fit: contain;
+}
+
+.car-body {
+  padding: 0 16px 16px;
+}
+
+.car-title {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.car-info {
+  font-size: 0.8rem;
+  color: #555;
+  margin: 2px 0;
+}
+
+.car-info span {
+  font-weight: 600;
+  color: #111;
+}
+
+.car-buttons {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 15px;
+}
+
+.btn-edit,
+.btn-delete {
+  border: none;
+  outline: none;
+  padding: 6px;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.btn-edit {
+  color: #2551A7;
+  border-color: #d3d3d3;
+  transform: scale(1.1);
+  background-color: #ffffff;
+}
+
+.btn-edit:hover {
+  background-color: #1e40af;
+  color: white;
+}
+
+.btn-delete {
+  color: rgb(172, 62, 62);
+  border-color: #e4e4e4;
+  background-color: #ffffff;
+}
+
+.btn-delete:hover {
+  color: white;
+  background-color: rgb(172, 62, 62);
+}

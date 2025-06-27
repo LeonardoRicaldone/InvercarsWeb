@@ -1,0 +1,131 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-layout {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.sidebar-vertical {
+  background-color: #ebedf2;
+  width: 50px;
+  margin: 20px;
+  border-radius: 60px;
+  overflow: hidden;
+  transition: height 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 102;
+  pointer-events: auto;
+}
+
+.sidebar-vertical.expanded {
+  height: calc(100vh - 40px);
+}
+
+.sidebar-vertical.collapsed {
+  height: 50px;
+}
+
+.iso-logo {
+  width: 30px;
+  height: auto;
+  margin: 12px 0;
+}
+
+.iso-logo.clickable {
+  cursor: pointer;
+}
+
+.sidebar-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px 0;
+  align-items: center;
+  width: 100%;
+}
+
+.sidebar-icons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 23px;
+  color: #000;
+  text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  padding: 12px;
+  width: 7  0%;
+  border-radius: 100px;
+}
+
+.sidebar-icons a:hover {
+  color: #2D56A8;
+  background-color: #d9e2f7;
+}
+
+.topbar {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 14px 30px;
+  background-color: transparent;
+  position: fixed; 
+  top: 0;
+  left: 90px; 
+  right: 0;
+  height: 60px; 
+  z-index: 101;
+  pointer-events: auto;
+}
+
+.search-input {
+  background-color: #F8F8F8;
+  width: 700px;
+  max-width: 80%; 
+  padding: 8px 14px;
+  font-size: 12px;
+  border: none;
+  border-radius: 14px;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  margin-top: 8px;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 0 1px rgba(184, 184, 184, 0.144);
+}
+
+.sidebar-vertical:focus{
+    box-shadow: 0 0 0 1px rgba(184, 184, 184, 0.144);
+}
+
+/* NAV */
+
+.nav-layout {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}

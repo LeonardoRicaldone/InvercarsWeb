@@ -1,0 +1,443 @@
+/* Dashboard Styles */
+.dashboard {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+/* Hero Section - Full Width */
+.hero-section-full {
+  position: relative;
+  height: 400px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  background-image: url('https://media.cylex.com.ar/companies/1155/7784/images/689347861-img5_570432_large.jpg'); 
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  font-style: italic;
+  opacity: 0.9;
+  margin-bottom: 0;
+}
+
+/* Main Content - Cambios para sección de marcas */
+.main-content {
+  margin: 0;
+  padding: 0;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Brands Section - Full Width con fondo blanco */
+.brands-section {
+  /* Hacer que abarque todo el ancho */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background-color: white;
+  padding: 4rem 0; 
+  margin-bottom: 0;
+}
+
+/* Brands Grid - En fila centradas */
+.brands-grid-centered {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem 2rem; /* Padding horizontal solo para las cards */
+}
+
+/* Loading and Error States */
+.loading-container,
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.loading-container p {
+  font-size: 1.125rem;
+  color: #718096;
+}
+
+.error-container p {
+  font-size: 1.125rem;
+  color: #e53e3e;
+  background-color: #fed7d7;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  border: 1px solid #feb2b2;
+  margin-bottom: 1rem;
+}
+
+.retry-btn {
+  background-color: #3182ce;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color 0.3s ease;
+}
+
+.retry-btn:hover {
+  background-color: #2c5aa0;
+}
+
+/* Contenido adicional después de marcas */
+.additional-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* Old brand styles - mantener por compatibilidad */
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.brand-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.brand-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.brand-logo {
+  width: 60px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Cars Sections */
+.cars-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+@media (max-width: 968px) {
+  .cars-sections {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.cars-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.cars-section .section-title {
+  text-align: left;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+
+/* Popular Cars Grid */
+.cars-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.car-card {
+  background: #f8f9fa;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.car-card:hover {
+  transform: translateY(-2px);
+}
+
+.car-image-container {
+  position: relative;
+}
+
+.car-image {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
+
+.favorite-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.1);
+}
+
+.heart-filled {
+  color: #ef4444;
+}
+
+.car-info {
+  padding: 1rem;
+}
+
+.car-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.car-price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #3182ce;
+  margin: 0;
+}
+
+/* Rental Car Card */
+.rental-card {
+  background: #f8f9fa;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.rental-image-container {
+  position: relative;
+}
+
+.rental-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.rental-info {
+  padding: 1.5rem;
+}
+
+.rental-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.rental-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #3182ce;
+  margin-bottom: 1rem;
+}
+
+.rental-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.action-btn {
+  background: #e2e8f0;
+  border: none;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #4a5568;
+}
+
+.action-btn:hover {
+  background: #cbd5e0;
+  transform: translateY(-1px);
+}
+
+/* Agregar estos estilos a tu Dashboard.css existente */
+
+/* Rental Cars Section */
+.rental-cars-section {
+  background-color: #f8f9fa;
+  padding: 4rem 0;
+}
+
+.rental-cars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* No cars available message */
+.no-cars-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.no-cars-container p {
+  font-size: 1.125rem;
+  color: #718096;
+  background-color: white;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 2px dashed #e2e8f0;
+}
+
+/* Responsive adjustments for rental cars */
+@media (max-width: 1024px) {
+  .rental-cars-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .rental-cars-section {
+    padding: 3rem 0;
+  }
+  
+  .rental-cars-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .no-cars-container {
+    padding: 2rem 1rem;
+  }
+  
+  .no-cars-container p {
+    padding: 1.5rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .rental-cars-grid {
+    padding: 0 0.5rem;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard {
+    /* Reducir padding-top en móviles si el navbar es más pequeño */
+    padding-top: 60px;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .brands-section {
+    padding: 3rem 0;
+  }
+  
+  .brands-grid-centered {
+    gap: 1rem;
+    flex-direction: row;
+    padding: 1rem;
+  }
+  
+  .brands-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 1rem;
+  }
+  
+  .cars-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cars-sections {
+    gap: 2rem;
+  }
+  
+  .additional-content {
+    padding: 2rem 1rem;
+  }
+}

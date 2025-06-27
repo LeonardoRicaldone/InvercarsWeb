@@ -1,0 +1,36 @@
+.with-nav {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.page-content {
+  position: absolute;
+  top: 0;
+  left: 90px;
+  right: 0;
+  bottom: 0;
+  padding-top: 80px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.sidebar-vertical.expanded ~ .page-content,
+.page-content {
+  transition: left 0.3s ease;
+}
+
+.page-content .profile-container {
+  min-height: calc(100vh - 80px);
+  margin: 0;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .page-content {
+    left: 0;
+    padding-top: 140px;
+  }
+}

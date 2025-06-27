@@ -1,7 +1,9 @@
-// Importo todo lo de la librería de Express
+//express es un servidor que me dara una red
+
+//importo todo lo de la libreria de express
 import express from "express";
 import cookieParser from "cookie-parser";
-import cors from "cors"
+import cors from "cors";
 import employeesRoutes from "./src/routes/employees.js"
 import brandsRoutes from "./src/routes/brands.js"
 import clientesRoutes from "./src/routes/clients.js"
@@ -10,25 +12,22 @@ import financingRoutes from "./src/routes/financing.js"
 import modelsRoutes from "./src/routes/models.js"
 import orderCarsRoute from "./src/routes/orderCars.js"
 
-//Creo una constante que es igual a la librería que importé
+//crear constante que es igual a la libreria que importe
 const app = express();
 
-/*app.use(
+//usamos cors
+app.use(
     cors({
-      origin: "https://zona-digital-mern-6ycb.vercel.app",
-      // Permitir envío de cookies y credenciales
-      credentials: true
-    })
-);*/
+    origin: "http://localhost:5173",
+    credentials: true,
+}))
 
-//Que acepte datos en json
+
+//Que acepte datos de json
 app.use(express.json());
-
 //Que postman acepte guardar cookies
-app.use(cookieParser());
+app.use(cookieParser())
 
-
-//Definimos las rutas de las funciones que tendrá la página web
 
 app.use("/api/employees", employeesRoutes)
 app.use("/api/brands", brandsRoutes)
