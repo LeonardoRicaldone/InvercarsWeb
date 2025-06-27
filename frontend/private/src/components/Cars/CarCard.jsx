@@ -20,7 +20,7 @@ const CarCard = ({
       </div>
 
       <div className="car-card-img-container">
-        <img src="https://blob.midwaycarrental.com/mrac-media/2021/02/FerrariF8Spider_640x480-1.png" alt={`${brand} ${model}`} className="car-image" />
+        <img src="https://blob.midwaycarrental.com/mrac-media/2021/02/FerrariF8Spider_640x480-1.png" alt={`${brand} ${model}`} className="car-card-image" />
       </div>
 
       <div className="car-body">
