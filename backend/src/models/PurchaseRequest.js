@@ -1,14 +1,14 @@
 import { Schema, model} from "mongoose";
 
 const purchaseReqSchema = new Schema({
-idCar: {
-    type: Schema.Types.ObjectId,
-    ref: "Cars",
-    required: true
-},
 idClient: {
     type: Schema.Types.ObjectId,
     ref: "Clients",
+    required: true
+},
+idCar: {
+    type: Schema.Types.ObjectId,
+    ref: "Cars",
     required: true
 },
 name: {

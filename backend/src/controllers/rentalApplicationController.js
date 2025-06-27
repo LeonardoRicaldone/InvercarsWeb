@@ -15,8 +15,8 @@ const rentalApplicationController = {};
 //SELECT
 rentalApplicationController.getAllRentalApplications = async (req, res) => {
 
-    try {
-        const rentalApplications = await rentalApplicationModel.find().populate('idCar').populate('idClient');
+    try { 
+        const rentalApplications = await rentalApplicationModel.find().populate('idClient').populate('idCar');
         res.status(200).json(rentalApplications);
     } catch (error) {
         console.error("error", error);
