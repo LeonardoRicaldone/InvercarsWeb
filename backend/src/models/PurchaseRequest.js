@@ -39,30 +39,6 @@ photocopyOfDui: {
     type: String,
     required: false
 },
-proofOfSalary: {
-    type: String,
-    required: false
-},
-afpAccountStatement: {
-    type: String,
-    required: false
-},
-license: {
-    type: String,
-    required: false
-},
-personalEmploymentReferences: {
-    type: String,
-    required: false
-},
-utilityReceipt: {
-    type: String,
-    required: false
-},
-copiesIvaIncome: {
-    type: String,
-    required: false
-},
 paymentMethodOptions: {
     type: String,
     required: false
@@ -78,7 +54,48 @@ status: {
 typeRequest: {
     type: String,
     required: false
-}
+},
+//Con financiamiento
+term: {
+    type: Number,
+    required: false
+},
+proofOfSalary: {
+    type: String,
+    required: false
+},
+utilityReceipt: {
+    type: String,
+    required: false
+},
+afpAccountStatement: {
+    type: String,
+    required: false
+},
+license: {
+    type: String,
+    required: false
+},
+personalEmploymentReferences: [
+    {
+        name: {
+            type: String,
+            required: false
+        },
+        phone: {
+            type: String,
+            required: false
+        },
+        email: {
+            type: String,
+            required: false
+        },
+    }
+],
+copiesIvaIncome: {
+    type: String,
+    required: false
+},
 }, {
     timestamps: true,
     strict: false
