@@ -20,8 +20,7 @@ router.post("/sendFinancingRequest", upload.fields([
     { name: "afpAccountStatement", maxCount: 1 },
     { name: "copiesIvaIncome", maxCount: 1 }
   ]),
-  purchaseRequestController.insertPurchaseRequestsFinanced
-);
+  purchaseRequestController.insertPurchaseRequestsFinanced);
 
 router.route("/:id")
 .put(upload.single("photocopyOfDui"), purchaseRequestController.updatePurchaseRequests)
@@ -39,3 +38,4 @@ router.put("/updateFinancingRequest/:id",
   purchaseRequestController.updatePurchaseRequestsFinanced
 );
 
+export default router;

@@ -26,7 +26,7 @@ rentalApplicationController.getAllRentalApplications = async (req, res) => {
 }
 
 //INSERT
-rentalApplicationController.insertRentalApplication = async (req, res) => {
+rentalApplicationController.insertRentalApplications = async (req, res) => {
 
     //1- Pedir los datos
     const { idClient, idCar, location, phone, address, email, applicationDate, startDate, endDate, state, paymentMethod } = req.body;
@@ -81,7 +81,7 @@ rentalApplicationController.insertRentalApplication = async (req, res) => {
 }
 
 //UPDATE
-rentalApplicationController.updateRentalApplication = async (req, res) => {
+rentalApplicationController.updateRentalApplications = async (req, res) => {
 
     //1- Pido las cosas
     const { idClient, idCar, location, photoLicense: licenseURL, photoDUI: duiURL, phone, address, email, startDate, endDate, state, paymentMethod } = req.body;
@@ -108,7 +108,7 @@ rentalApplicationController.updateRentalApplication = async (req, res) => {
 }
 
 //DELETE
-rentalApplicationController.deleteRentalApplication = async (req, res) => {
+rentalApplicationController.deleteRentalApplications = async (req, res) => {
 
     try {
 
