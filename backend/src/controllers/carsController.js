@@ -230,13 +230,20 @@ carsController.addOfferCar = async(req, res) => {
   }
 }
 
+// Actualización del método getRentalCars en carsController.js
 carsController.getRentalCars = async (req, res) => {
   try {
     const filter = { commercialUse: 'Alquiler' };
     
- 
+    // Populate más profundo para obtener modelo y marca
     const cars = await carsModel.find(filter)
-      .populate('idModel')
+      .populate({
+        path: 'idModel',
+        populate: {
+          path: 'idBrand', // Asumiendo que en tu modelo Models tienes una referencia a Brand
+          select: 'name logo' // Solo seleccionar nombre y logo de la marca
+        }
+      })
       .sort({ createdAt: -1 });
     
     res.status(200).json({

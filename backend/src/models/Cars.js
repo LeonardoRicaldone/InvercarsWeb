@@ -11,7 +11,7 @@ description: {
     required: true
 },
 year: {
-    type: String,
+    type: Number,
     require: true,
 },
 licensePlate: {

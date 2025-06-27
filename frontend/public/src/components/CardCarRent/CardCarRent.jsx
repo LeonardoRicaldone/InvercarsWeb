@@ -1,8 +1,10 @@
 import React from 'react';
-import { Heart, Users, Fuel, Settings, Car, Wind, DollarSign, CreditCard } from 'lucide-react';
+import { Heart, Users, Fuel, Settings, Car, Wind, DollarSign, FileText } from 'lucide-react';
 
 const CardCarRent = ({
   title,
+  brandName,
+  modelName,
   images,
   carTransmission,
   fuelType,
@@ -16,14 +18,19 @@ const CardCarRent = ({
   rims,
   mileage,
   engine,
-  color
+  color,
+  onRentClick
 }) => {
   const [isFavorite, setIsFavorite] = React.useState(false);
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
 
-  // Manejar imágenes (puede ser string o array)
-  const imageArray = Array.isArray(images) ? images : [images];
-  const currentImage = imageArray[currentImageIndex] || 'https://via.placeholder.com/400x200/e5e5e5/666666?text=Sin+Imagen';
+  // Extraer las URLs de las imágenes correctamente
+  const imageArray = Array.isArray(images) && images.length > 0 
+    ? images.map(img => img.image).filter(url => url)
+    : ['https://via.placeholder.com/400x200/e5e5e5/666666?text=Sin+Imagen'];
+
+  const currentImage = imageArray[currentImageIndex];
+  const displayTitle = title || (brandName && modelName ? `${brandName} ${modelName}` : 'Vehículo Disponible');
 
   const handleNextImage = () => {
     if (imageArray.length > 1) {
@@ -38,42 +45,43 @@ const CardCarRent = ({
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 max-w-sm border border-gray-100">
-      {/* Header con imagen */}
+    <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-all duration-300 w-full">
+      {/* Header con imagen más compacta */}
       <div className="relative">
         <img 
           src={currentImage}
-          alt={title || 'Vehículo'}
-          className="w-full h-48 object-cover bg-gray-100"
+          alt={displayTitle}
+          className="w-full h-44 object-cover bg-gray-100"
           onError={(e) => {
+            console.log('Error loading image:', e.target.src);
             e.target.src = 'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg';
           }}
         />
         
         {/* Rating badge */}
-        <div className="absolute top-3 left-3 bg-black bg-opacity-70 text-white px-2 py-1 rounded-lg flex items-center">
-          <span className="text-yellow-400 mr-1">★</span>
-          <span className="text-sm font-medium">4.8</span>
+        <div className="absolute top-2 left-2 bg-white bg-opacity-90 text-gray-700 px-2 py-1 rounded-lg flex items-center backdrop-blur-sm">
+          <span className="text-yellow-500 mr-1">★</span>
+          <span className="text-xs font-medium">4.8</span>
         </div>
 
         {/* Favorite button */}
         <button 
           onClick={() => setIsFavorite(!isFavorite)}
-          className="absolute top-3 right-3 p-2 bg-white bg-opacity-90 rounded-full hover:bg-opacity-100 transition-all shadow-sm"
+          className="absolute top-2 right-2 p-1.5 bg-white bg-opacity-90 rounded-full hover:bg-opacity-100 transition-all shadow-sm backdrop-blur-sm"
         >
           <Heart 
-            className={`w-5 h-5 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-600'}`} 
+            className={`w-4 h-4 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-600'}`} 
           />
         </button>
 
         {/* Image navigation dots */}
         {imageArray.length > 1 && (
-          <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1">
+          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
             {imageArray.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentImageIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
+                className={`w-1.5 h-1.5 rounded-full transition-all ${
                   index === currentImageIndex ? 'bg-white' : 'bg-white bg-opacity-50'
                 }`}
               />
@@ -82,112 +90,109 @@ const CardCarRent = ({
         )}
       </div>
 
-      {/* Content */}
-      <div className="p-4">
-        {/* Title */}
-        <h3 className="text-lg font-semibold text-gray-900 mb-3">
-          {title || 'Vehículo Disponible'}
-        </h3>
-
-        {/* Main features */}
-        <div className="grid grid-cols-4 gap-3 mb-4">
-          <div className="flex flex-col items-center text-center">
-            <Settings className="w-4 h-4 mb-1" style={{ color: '#2D56A8' }} />
-            <span className="text-xs text-gray-600 leading-tight">
-              {carTransmission || 'N/A'}
+      <div className="p-3">
+        {/* Title y Precio en la misma línea - más compacto */}
+        <div className="flex justify-between items-center mb-3">
+          <h3 className="text-sm font-semibold text-gray-900 truncate flex-1 mr-2">
+            {displayTitle}
+          </h3>
+          <div className="text-right flex-shrink-0">
+            <span className="text-xl font-bold text-blue-600">
+              ${rentalCostPerDay || 0}
             </span>
-          </div>
-          
-          <div className="flex flex-col items-center text-center">
-            <Fuel className="w-4 h-4 mb-1" style={{ color: '#2D56A8' }} />
-            <span className="text-xs text-gray-600 leading-tight">
-              {fuelType || 'N/A'}
-            </span>
-          </div>
-          
-          <div className="flex flex-col items-center text-center">
-            <Users className="w-4 h-4 mb-1" style={{ color: '#2D56A8' }} />
-            <span className="text-xs text-gray-600 leading-tight">
-              {passengerCapacity || 0} asientos
-            </span>
-          </div>
-          
-          <div className="flex flex-col items-center text-center">
-            <Car className="w-4 h-4 mb-1" style={{ color: '#2D56A8' }} />
-            <span className="text-xs text-gray-600 leading-tight">
-              {typeVehicle || 'N/A'}
-            </span>
+            <span className="text-gray-500 text-xs ml-1">/ Día</span>
           </div>
         </div>
 
-        {/* Additional features */}
-        <div className="flex flex-wrap gap-2 mb-4">
-          {airConditioning && (
-            <div className="flex items-center text-white px-2 py-1 rounded-full text-xs" style={{ backgroundColor: '#2D56A8' }}>
-              <Wind className="w-3 h-3 mr-1" />
-              A/C
-            </div>
-          )}
-          {radio && (
-            <div className="text-white px-2 py-1 rounded-full text-xs" style={{ backgroundColor: '#2D56A8' }}>
-              Radio {radio}
-            </div>
-          )}
-          {color && (
-            <div className="text-white px-2 py-1 rounded-full text-xs" style={{ backgroundColor: '#2D56A8' }}>
-              {color}
-            </div>
-          )}
-        </div>
-
-        {/* Pricing section */}
-        <div className="border-t pt-3 space-y-2">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center text-gray-600">
-              <DollarSign className="w-4 h-4 mr-1" style={{ color: '#2D56A8' }} />
-              <span className="text-sm">Por día</span>
-            </div>
-            <div className="text-right">
-              <span className="text-2xl font-bold" style={{ color: '#2D56A8' }}>
-                ${rentalCostPerDay || 0}
-              </span>
-              <span className="text-gray-500 text-sm ml-1">/ Día</span>
-            </div>
-          </div>
-          
-          {deposit > 0 && (
-            <div className="flex justify-between items-center text-sm">
-              <div className="flex items-center text-gray-600">
-                <CreditCard className="w-4 h-4 mr-1" style={{ color: '#2D56A8' }} />
-                <span>Depósito</span>
-              </div>
-              <span className="font-medium text-gray-800">
-                ${deposit}
+        {/* Main features en una fila horizontal con botones a la derecha - más compacto */}
+        <div className="flex justify-between items-center gap-1.5 mb-2">
+          {/* Especificaciones */}
+          <div className="flex gap-1.5 flex-1">
+            <div className="flex items-center justify-center p-1.5 bg-blue-50 rounded-lg min-w-0 flex-1">
+              <Settings className="w-3 h-3 mr-1" style={{ color: '#2D56A8' }} />
+              <span className="text-xs text-gray-600 truncate">
+                {carTransmission || 'Auto'}
               </span>
             </div>
-          )}
+            
+            <div className="flex items-center justify-center p-1.5 bg-blue-50 rounded-lg min-w-0 flex-1">
+              <Fuel className="w-3 h-3 mr-1" style={{ color: '#2D56A8' }} />
+              <span className="text-xs text-gray-600 truncate">
+                {fuelType || 'Gas'}
+              </span>
+            </div>
+            
+            <div className="flex items-center justify-center p-1.5 bg-blue-50 rounded-lg min-w-0 flex-1">
+              <Users className="w-3 h-3 mr-1" style={{ color: '#2D56A8' }} />
+              <span className="text-xs text-gray-600 truncate">
+                {passengerCapacity || 4}
+              </span>
+            </div>
+            
+            <div className="flex items-center justify-center p-1.5 bg-blue-50 rounded-lg min-w-0 flex-1">
+              <Car className="w-3 h-3 mr-1" style={{ color: '#2D56A8' }} />
+              <span className="text-xs text-gray-600 truncate">
+                {typeVehicle || 'SUV'}
+              </span>
+            </div>
+          </div>
+
+          {/* Botones a la derecha - más pequeños */}
+          <div className="flex gap-1.5 ml-2">
+            {/* Dollar sign button con fondo azul */}
+            <button 
+              className="flex items-center justify-center w-8 h-8 rounded-lg transition-colors"
+              style={{ backgroundColor: '#2D56A8', color: 'white' }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = '#1E3F7A'} 
+              onMouseLeave={(e) => e.target.style.backgroundColor = '#2D56A8'}
+            >
+              <DollarSign className="w-4 h-4" />
+            </button>
+
+            {/* Info button */}
+            <button 
+              className="flex items-center justify-center w-8 h-8 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors"
+              style={{ color: '#2D56A8' }}
+            >
+              <FileText className="w-4 h-4" />
+            </button>
+          </div>
         </div>
 
-        {/* Action button */}
-        <button className="w-full mt-4 text-white font-medium py-2.5 px-4 rounded-lg transition-colors duration-200" style={{ backgroundColor: '#2D56A8' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#1E3F7A'} onMouseLeave={(e) => e.target.style.backgroundColor = '#2D56A8'}>
-          Alquilar Ahora
-        </button>
       </div>
 
-      {/* Additional specs tooltip/expandable (opcional) */}
+      {/* Additional specs con depósito en la misma línea - más compacto */}
       {(engine || mileage || traction || rims) && (
-        <div className="px-4 pb-3">
-          <details className="text-xs text-gray-600">
-            <summary className="cursor-pointer hover:text-gray-800 font-medium">
-              Ver especificaciones
-            </summary>
-            <div className="mt-2 space-y-1 pl-2">
-              {engine && <div>Motor: {engine}</div>}
-              {mileage && <div>Kilometraje: {mileage.toLocaleString()} km</div>}
-              {traction && <div>Tracción: {traction}</div>}
-              {rims && <div>Rines: {rims}</div>}
-            </div>
-          </details>
+        <div className="px-3 pb-2 border-t border-gray-100">
+          <div className="flex justify-between items-center">
+            <details className="text-xs text-gray-600 flex-1">
+              <summary className="cursor-pointer hover:text-gray-800 font-medium py-1">
+                Ver especificaciones
+              </summary>
+              <div className="mt-1 space-y-0.5 pl-2">
+                {engine && <div>Motor: {engine}</div>}
+                {mileage && <div>Km: {mileage.toLocaleString()}</div>}
+                {traction && <div>Tracción: {traction}</div>}
+                {rims && <div>Rines: {rims}</div>}
+              </div>
+            </details>
+            
+            {/* Deposit info al lado derecho */}
+            {deposit > 0 && (
+              <div className="text-xs text-gray-500 py-1">
+                Depósito: ${deposit}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+      
+      {/* Si no hay specs pero sí hay depósito */}
+      {!(engine || mileage || traction || rims) && deposit > 0 && (
+        <div className="px-3 pb-2 border-t border-gray-100">
+          <div className="text-xs text-gray-500 text-right py-1">
+            Depósito: ${deposit}
+          </div>
         </div>
       )}
     </div>
