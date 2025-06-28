@@ -44,7 +44,7 @@ app.use("/api/ordercars", orderCarsRoutes)
 app.use("/api/purchaseRequests", purchaseRequestRoutes)
 app.use("/api/rentalApplications", rentalApplicationRoutes)
 app.use("/api/rents", rentRoutes)
-app.use("/api/puchases", puchaseRoutes)
+app.use("/api/purchases", puchaseRoutes)
 
 //Exporto la constante para poder usar express en otros archivos
 export default app;
