@@ -34,6 +34,7 @@ app.use(express.json());
 app.use(cookieParser())
 
 
+
 app.use("/api/employees", employeesRoutes)
 app.use("/api/brands", brandsRoutes)
 app.use("/api/clients", clientesRoutes)
