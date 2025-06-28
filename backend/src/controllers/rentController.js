@@ -270,4 +270,5 @@ rentController.addPayments = async(req, res) => {
     }
 }
 
+
 export default rentController;

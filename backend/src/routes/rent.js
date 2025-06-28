@@ -37,5 +37,4 @@ router
   //Ruta para agregar cargos adicionales a la renta
   router.post("/add-payment", rentController.addPayments);
 
-
 export default router;
