@@ -27,6 +27,7 @@ app.use(
 
 //Que acepte datos de json
 app.use(express.json());
+
 //Que postman acepte guardar cookies
 app.use(cookieParser())
 

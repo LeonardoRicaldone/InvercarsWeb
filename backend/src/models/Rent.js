@@ -3,7 +3,7 @@ import { Schema, model} from "mongoose";
 const rentSchema = new Schema({
 idRentalApplication: {
     type: Schema.Types.ObjectId,
-    ref: "RentalApp",
+    ref: "RentalApplication",
     require: true
 },
 depositPaid: {

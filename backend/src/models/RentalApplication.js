@@ -61,4 +61,4 @@ paymentMethod: {
     strict: false
 })
 
-export default model("RentalApp", rentalAppSchema)
+export default model("RentalApplication", rentalAppSchema)

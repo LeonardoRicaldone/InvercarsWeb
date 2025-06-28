@@ -50,7 +50,7 @@ modelsController.updateModels = async(req, res) => {
     try {
         
         const modelUpdated = await modelsModel.findByIdAndUpdate(
-            req.param.id,
+            req.params.id,
             {name, idBrand},
             {new: true}
         )
