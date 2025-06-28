@@ -118,5 +118,33 @@ purchaseController.addDirectPurchaseDetails = async(req, res) => {
     }
 }
 
+//idFinancing downPaymentAmount downPaymentPaid downPaymentDate deliveryDate
+//Función para agregar los detalles de compras financiadas al array
+purchaseController.addFinancedPurchaseDetails = async(req, res) => {
 
+    //1- Pido los datos
+    const { purchaseId, idFinancing, downPaymentAmount, downPaymentPaid, downPaymentDate, deliveryDate } = req.body;
+
+    try {
+        
+        const purchase = await purchaseModel.findById(purchaseId)
+
+        const newPurchaseDetails = { idFinancing, downPaymentAmount, downPaymentPaid, downPaymentDate, deliveryDate };
+
+        //Si ya se había hecho un insert lo reemplazamos
+        if(purchase.financingPurchase.length > 0) {
+            purchase.financingPurchase[0] = newPurchaseDetails;
+        } else {
+            //Si no hay ninguna, lo inserto
+            purchase.financingPurchase.splice(0, 0, newPurchaseDetails)
+        }
+
+        await purchase.save();
+
+        res.status(200).json({ message: 'Financed purchase details added', rent });
+
+    } catch (error) {
+        res.status(500).json({ message: 'Internal server error', error });
+    }
+}
 export default purchaseController;

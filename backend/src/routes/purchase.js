@@ -15,6 +15,9 @@ router
 
 
   // Ruta para insertar o reemplazar los detalles de compras directas
-  router.post("/add-direct-purchase-details", rentController.setStartedConditions);
-  
+  router.post("/add-direct-purchase-details", purchaseController.addDirectPurchaseDetails);
+
+  // Ruta para insertar o reemplazar los detalles de compras financiadas
+  router.post("/add-financed-purchase-details", purchaseController.addFinancedPurchaseDetails);
+
 export default router;
