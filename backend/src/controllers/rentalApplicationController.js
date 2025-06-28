@@ -1,4 +1,4 @@
-import rentalApplicationModel from '../models/rentalApplicationModel.js';
+import rentalApplicationModel from '../models/RentalApplication.js';
 import { v2 as cloudinary } from 'cloudinary';
 import { config } from '../config.js';
 

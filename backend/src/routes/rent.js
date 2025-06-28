@@ -1,5 +1,6 @@
 import express from "express";
 import rentController from "../controllers/rentController.js";
+import multer from "multer"
 
 //Router nos ayuda a colocar los métodos que tendrá mi ruta
 const router = express.Router();

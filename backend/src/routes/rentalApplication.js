@@ -16,8 +16,8 @@ router
     { name: "photoDUI", maxCount: 1 }
   ]), rentalApplicationController.insertRentalApplications);
 
-router
-.delete(rentalApplicationController.deleteRentalApplications);
+router.route("/:id")
+  .delete(rentalApplicationController.deleteRentalApplications);
 router.route("/:id")
   .put(upload.fields([
     { name: "photoLicense", maxCount: 1 },
