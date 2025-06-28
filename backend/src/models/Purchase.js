@@ -6,11 +6,6 @@ idPurchaseRequest: {
     ref: "PurchaseRequest",
     required: true
 },
-idOrderCar: {
-    type: Schema.Types.ObjectId,
-    ref: "OrdersCars",
-    required: false
-},
 purchaseType: {
     type: String,
     required: true
@@ -80,7 +75,6 @@ financingPurchase: [
         }
     }
 ],
-//PURCHASE WITH IMPORT (COULD BE AN ARRAY WHERE WE PUT ALL THE PAYMENT ARRAYS (MORE CLEANER))
 initialDeposit: [
     {
         amount: {
