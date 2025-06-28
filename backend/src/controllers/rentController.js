@@ -226,4 +226,48 @@ rentController.addReview = async (req, res) => {
     }
 };
 
+
+//Agregar cargos adicionales a la renta
+rentController.addAdditionalCharges = async(req, res) => {
+
+    const { rentId, description, amount } = req.body;
+
+    try {
+        
+        //Primero obtengo cuál renta es en base a su ID
+        const rent = await rentModel.findById(rentId)
+
+        //Agregar cargos adicionales al array de cargos de la renta
+        rent.additionalCharges.push({description, amount})
+        await rent.save();
+
+        res.status(200).json({ message: 'Additional charges added', rent });
+
+    } catch (error) {
+        res.status(500).json({ message: 'Error del servidor', error });
+    }
+}
+
+
+//Agregar pagos a la renta
+rentController.addPayments = async(req, res) => {
+
+    const { rentId, amount, method, reference } = req.body;
+
+    try {
+        
+        //Primero obtengo cuál renta es en base a su ID
+        const rent = await rentModel.findById(rentId)
+
+        //Agregar pagos al array de pagos de la renta
+        rent.payments.push({amount, method, reference})
+        await rent.save();
+
+        res.status(200).json({ message: 'Payment added', rent });
+
+    } catch (error) {
+        res.status(500).json({ message: 'Error del servidor', error });
+    }
+}
+
 export default rentController;

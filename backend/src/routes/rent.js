@@ -31,4 +31,11 @@ router
   //Ruta para agregar comentarios a la renta
   router.post("/add-review", rentController.addReview);
 
+  //Ruta para agregar cargos adicionales a la renta
+  router.post("/add-additional-charges", rentController.addAdditionalCharges);
+
+  //Ruta para agregar cargos adicionales a la renta
+  router.post("/add-payment", rentController.addPayments);
+
+
 export default router;
