@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/NavBar.css";
 import IsoInver from "../images/isoinver.png";
 import { FiHome } from "react-icons/fi";
-import { PiCarSimpleBold, PiChatTeardropTextBold } from "react-icons/pi";
+import { PiCarSimpleBold, PiChatTeardropTextBold, PiX } from "react-icons/pi";
 import { FaRegFolder, FaRegUser } from "react-icons/fa6";
 import { TbDatabaseDollar } from "react-icons/tb";
 import { LuTag, LuLogOut } from "react-icons/lu";
@@ -24,14 +24,14 @@ const NavBar = () => {
         />
         {isOpen && (
           <nav className="sidebar-icons">
-            <Link to="#"><FiHome /></Link>
-            <Link to="/cars"><PiCarSimpleBold /></Link>
-            <Link to="/brands"><LuTag /></Link>
+            <Link to="#"><FiHome/></Link>
+            <Link to="/cars"><PiCarSimpleBold/> </Link>
+            <Link to="/brands"><LuTag/></Link>
             <Link to="#"><FaRegFolder /></Link>
-            <Link to="#"><TbDatabaseDollar /></Link>
-            <Link to="#"><PiChatTeardropTextBold /></Link>
-            <Link to="/profile"><FaRegUser /></Link>
-            <Link to="/login"><LuLogOut /></Link>
+            <Link to="#"><TbDatabaseDollar/></Link>
+            <Link to="#"><PiChatTeardropTextBold/></Link>
+            <Link to="/profile"><FaRegUser/></Link>
+            <Link to="/login"><LuLogOut/></Link>
           </nav>
         )}
       </div>

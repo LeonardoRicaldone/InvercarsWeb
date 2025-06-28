@@ -38,7 +38,7 @@ const Login = () => {
             <Link to="/passwordrecovery">¿Olvidaste tu contraseña?</Link>
           </div>
           
-          <button className="login-button" onClick={handleLoginClick}>Siguiente</button>
+          <button className="login-button" onClick={handleLoginClick}>Iniciar sesión</button>
         </div>
       </div>
 

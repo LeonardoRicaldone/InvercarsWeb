@@ -16,6 +16,13 @@ html, body {
   pointer-events: none;
 }
 
+.sidebar-vertical .iso-logo {
+  position: absolute;
+  top: 2.5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .sidebar-vertical {
   background-color: #ebedf2;
   width: 50px;
@@ -69,7 +76,7 @@ html, body {
   text-decoration: none;
   transition: color 0.3s ease, background-color 0.3s ease;
   padding: 12px;
-  width: 7  0%;
+  width: 100%;
   border-radius: 100px;
 }
 
@@ -128,4 +135,105 @@ html, body {
   top: 0;
   left: 0;
   z-index: 1000;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+  .sidebar-vertical {
+    width: 50px;
+    margin: 10px;
+    padding-top: 45px;
+  }
+
+  .sidebar-vertical.expanded {
+    height: calc(100vh - 20px);
+  }
+
+  .sidebar-icons a {
+    font-size: 22px;
+    padding: 8px;
+  }
+
+  .iso-logo {
+    width: 24px;
+    top: 8px;
+  }
+
+  .topbar {
+    left: 70px;
+    padding: 10px 15px;
+    height: 50px;
+  }
+
+  .search-input {
+    width: 200px;
+    font-size: 10px;
+    padding: 6px 10px;
+    margin-top: 4px;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1599px) {
+  .sidebar-vertical {
+    width: 50px;
+    margin: 20px;
+    padding-top: 50px;
+  }
+
+  .sidebar-icons a {
+    font-size: 23px;
+    padding: 12px;
+  }
+
+  .iso-logo {
+    width: 30px;
+    top: 12px;
+  }
+
+  .topbar {
+    left: 90px;
+    padding: 14px 30px;
+    height: 60px;
+  }
+
+  .search-input {
+    width: 700px;
+    max-width: 80%;
+    font-size: 12px;
+    padding: 8px 14px;
+    margin-top: 8px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .sidebar-vertical {
+    width: 60px;
+    margin: 25px;
+    padding-top: 60px;
+  }
+
+  .sidebar-icons a {
+    font-size: 30px;
+    padding: 17px;
+  }
+
+  .iso-logo {
+    width: 40px;
+    top: 15px;
+  }
+
+  .topbar {
+    left: 110px;
+    padding: 20px 40px;
+    height: 70px;
+  }
+
+  .search-input {
+    width: 900px;
+    max-width: 85%;
+    font-size: 16px;
+    padding: 10px 18px;
+    margin-top: 10px;
+  }
 }

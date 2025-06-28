@@ -16,7 +16,7 @@ const Dashboard = () => {
   };
 
   const handleCarRent = (car) => {
-    console.log('Car selected for rent:', car.title);
+    console.log('Car selected for rent:', car.displayTitle || car.title);
     // Aquí puedes agregar la lógica para el proceso de alquiler
   };
 
@@ -76,7 +76,7 @@ const Dashboard = () => {
       {/* Rental Cars Section */}
       <section className="rental-cars-section">
         <div className="additional-content">
-          <h2 className="section-title">Carros Disponibles para Alquiler</h2>
+          <h2 className="section-title">Carros en alquiler</h2>
           
           {carsLoading && (
             <div className="loading-container">
@@ -107,7 +107,9 @@ const Dashboard = () => {
                   {rentalCars.map((car) => (
                     <CardCarRent
                       key={car._id || car.id}
-                      title={car.title}
+                      title={car.displayTitle} // Usar el título construido con marca y modelo
+                      brandName={car.brandName} // Pasar marca por separado si es necesario
+                      modelName={car.modelName} // Pasar modelo por separado si es necesario
                       images={car.images}
                       carTransmission={car.carTransmission}
                       fuelType={car.fuelType}

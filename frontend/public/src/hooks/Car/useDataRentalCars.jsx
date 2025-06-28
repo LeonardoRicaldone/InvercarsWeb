@@ -38,7 +38,21 @@ const useDataRentalCars = () => {
         console.warn('Expected array but got:', typeof carsData, carsData);
         setRentalCars([]);
       } else {
-        setRentalCars(carsData);
+        // Procesar los datos para construir el título con marca y modelo
+        const processedCars = carsData.map(car => ({
+          ...car,
+          // Construir título con marca y modelo
+          displayTitle: car.idModel?.idBrand?.name && car.idModel?.name 
+            ? `${car.idModel.idBrand.name} ${car.idModel.name}`
+            : car.title || 'Vehículo Disponible',
+          // Mantener datos adicionales para fácil acceso
+          brandName: car.idModel?.idBrand?.name || 'Marca no disponible',
+          modelName: car.idModel?.name || 'Modelo no disponible',
+          brandLogo: car.idModel?.idBrand?.logo || null
+        }));
+        
+        console.log('Processed cars with titles:', processedCars);
+        setRentalCars(processedCars);
       }
       
     } catch (err) {
