@@ -43,12 +43,17 @@ preExistingDamage: [
     }
 ],
 reviews: [
-    {
-        comment: {
-            type: String,
-            required: true
-        }
+  {
+    idClient: {
+      type: Schema.Types.ObjectId,
+      ref: "Clients", 
+      required: true
+    },
+    comment: {
+      type: String,
+      required: true
     }
+  }
 ],
 depositReturned: {
     type: Number,

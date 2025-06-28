@@ -143,11 +143,86 @@ rentController.setReturnConditions = async (req, res) => {
         }
 
         await rent.save();
-        
+
         res.status(200).json({ message: 'Condición de retorno registrada', rent });
 
     } catch (error) {
         res.status(500).json({ message: 'Error del servidor', error });
+    }
+};
+
+//Función para agregar daños existentes
+rentController.addPreExistingDamage = async (req, res) => {
+    const { rentId, description } = req.body;
+    let photoURL = "";
+
+    try {
+        // Subir imagen a Cloudinary si existe
+        if (req.file) {
+            const result = await cloudinary.uploader.upload(req.file.path, {
+                folder: "public", // Carpeta en Cloudinary
+                allowed_formats: ["png", "jpg", "jpeg", "webp"]
+            });
+
+            photoURL = result.secure_url; // Guardamos la URL segura
+        }
+
+        // Buscar renta
+        const rent = await rentModel.findById(rentId);
+
+        if (!rent) {
+            return res.status(404).json({ message: "Rent not found" });
+        }
+
+        // Crear el nuevo daño
+        const newDamage = {
+            description,
+            photo: photoURL || null
+        };
+
+        // Agregar al array de daños preexistentes
+        rent.preExistingDamage.push(newDamage);
+        await rent.save();
+
+        res.status(200).json({ message: "Pre existings damage added", rent });
+
+    } catch (error) {
+        console.error("error", error);
+        res.status(500).json({ message: "Internal server error", error });
+    }
+};
+
+//Agregar comentario a la renta
+rentController.addReview = async (req, res) => {
+
+    const { rentId, comment } = req.body;
+
+    try {
+        const rent = await rentModel.findById(rentId).populate("idRentalApplication");
+
+        if (!rent) {
+            return res.status(404).json({ message: "Rent not found" });
+        }
+
+        const rentalApp = rent.idRentalApplication;
+
+        if (!rentalApp || !rentalApp.idClient) {
+            return res.status(400).json({ message: "No client related to the request was found" });
+        }
+
+        const review = {
+            idClient: rentalApp.idClient,
+            comment
+        };
+
+        rent.reviews.push(review);
+        await rent.save();
+
+        res.status(200).json({ message: "Review added", rent });
+
+    } catch (error) {
+        console.error("error", error);
+        res.status(500).json({ message: "Internal server error", error });
     }
 };
 
